@@ -1,114 +1,115 @@
 body {
-    margin: 0;
-    overflow: hidden; /* Hide scrollbars caused by GUI */
-    background-color: #1a1a1a; /* Dark background */
-    color: #eee;
-    font-family: sans-serif;
-    position: relative; /* Add this to make it a positioning context */
-    height: 100vh; /* Make body take full viewport height */
-  }
-  
-  canvas {
-    display: block; /* Remove extra space below canvas */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #282828; /* Slightly lighter bg for canvas */
-  }
-  
-  /* --- GUI Styling & Positioning --- */
-  /* dat.GUI handles its own internal styling, but we can position the container */
-  #gui-container .dg.main { /* Targets the main GUI element */
-    /* Position it top-right if desired */
-     position: absolute;
-     z-index: 100; /* Ensure it's above the canvas */
-  }
-  /* Or let it use its default fixed positioning */
-  
-  
-  /* --- Export Controls Styling --- */
-  .export-controls {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(40, 40, 40, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 50;
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-  }
-  
-  .export-header {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    justify-content: space-between;
-  }
-  
-  .export-header .toggle-button {
-    background-color: rgba(255,255,255,0.1);
-    padding: 8px;
-  }
-  
-  .export-header .toggle-button:hover {
-    background-color: rgba(255,255,255,0.2);
-  }
-  
-  .export-controls.collapsed .toggle-button {
-    transform: rotate(-90deg);
-  }
-  
-  .export-content {
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    display: none;
-  }
-  
-  .export-controls.collapsed .export-content {
-    display: block;
-  }
-  
-  .export-controls button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .export-controls button:hover {
-    background-color: #45a049;
-  }
-  
-  #exportOutput {
-    background-color: #111;
-    border: 1px solid #555;
-    padding: 8px;
-    font-size: 0.8em;
-    white-space: pre-wrap; /* Allow wrapping */
-    word-wrap: break-word; /* Break long words */
-    max-height: 150px; /* Limit height */
-    overflow-y: auto; /* Add scroll if needed */
-    border-radius: 3px;
-    color: lightgreen;
-    margin: 0; /* Remove default margin */
-  }
-  
-  #exportOutput:empty { /* Hide if empty */
-      display: none;
-  }
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars caused by GUI */
+  background-color: #1a1a1a; /* Dark background */
+  color: #eee;
+  font-family: sans-serif;
+  position: relative; /* Add this to make it a positioning context */
+  height: 100vh; /* Make body take full viewport height */
+}
 
-  @media (max-width: 767px) {
-    .export-controls {
-      width: 320px;
-    }
+canvas {
+  display: block; /* Remove extra space below canvas */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--canvas-bg-color, #282828); /* Default to #282828 */
+}
+
+/* --- GUI Styling & Positioning --- */
+/* dat.GUI handles its own internal styling, but we can position the container */
+#gui-container .dg.main {
+  /* Targets the main GUI element */
+  /* Position it top-right if desired */
+  position: absolute;
+  z-index: 100; /* Ensure it's above the canvas */
+}
+/* Or let it use its default fixed positioning */
+
+/* --- Export Controls Styling --- */
+.export-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 50;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.export-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: space-between;
+}
+
+.export-header .toggle-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+}
+
+.export-header .toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.export-controls.collapsed .toggle-button {
+  transform: rotate(-90deg);
+}
+
+.export-content {
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+  display: none;
+}
+
+.export-controls.collapsed .export-content {
+  display: block;
+}
+
+.export-controls button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.export-controls button:hover {
+  background-color: #45a049;
+}
+
+#exportOutput {
+  background-color: #111;
+  border: 1px solid #555;
+  padding: 8px;
+  font-size: 0.8em;
+  white-space: pre-wrap; /* Allow wrapping */
+  word-wrap: break-word; /* Break long words */
+  max-height: 150px; /* Limit height */
+  overflow-y: auto; /* Add scroll if needed */
+  border-radius: 3px;
+  color: lightgreen;
+  margin: 0; /* Remove default margin */
+}
+
+#exportOutput:empty {
+  /* Hide if empty */
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .export-controls {
+    width: 320px;
   }
+}

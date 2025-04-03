@@ -85,7 +85,7 @@ const BASE_DEFAULT_OPTIONS = {
   waveDirectionMode: "opposite",
   minOpacity: 0.1, // New: Minimum wave opacity
   maxOpacity: 0.9, // New: Maximum wave opacity
-  useFullScreenHeight: false, // New: Control for full screen height
+  useFullScreenHeight: true, // Default to full screen height
   // Removed heightSourceSelector for simplicity in this demo
 };
 
@@ -513,6 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const initialConfig = {
     ...BASE_DEFAULT_OPTIONS, // Start with base
     ...PRESET_OPTIONS[BASE_DEFAULT_OPTIONS.preset], // Apply default preset
+    canvasBackgroundColor: "#282828", // Initial background color for GUI
   };
   // Convert baseColor to hex for the GUI
   initialConfig.baseColor = rgbStringToHex(initialConfig.baseColor);
@@ -598,10 +599,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .name("Speed (ms)")
     // Simple onChange, setOptions handles preserving color now
     .onChange(() => waveAnimation.setOptions({ speed: config.speed }));
+  /* // Hide rotation control
   animFolder
     .add(config, "rotation", -180, 180, 1)
-    .name("Rotation (deg)")
+    .name("Rotation (Heavy!)")
     .onChange(() => waveAnimation.setOptions({ rotation: config.rotation }));
+  */
   animFolder
     .add(config, "waveDirectionMode", ["opposite", "forward", "backward"])
     .name("Direction Mode")
@@ -689,6 +692,14 @@ document.addEventListener("DOMContentLoaded", () => {
         minOpacity: config.minOpacity,
         maxOpacity: config.maxOpacity,
       });
+    });
+
+  // Add canvas background color controller
+  appearanceFolder
+    .addColor(config, "canvasBackgroundColor")
+    .name("Canvas BG Color")
+    .onChange((value) => {
+      document.documentElement.style.setProperty("--canvas-bg-color", value);
     });
 
   // Wave Shape Folder - Simplify onChange handlers

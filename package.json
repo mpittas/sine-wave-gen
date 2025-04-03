@@ -1,0 +1,21 @@
+{
+  "name": "wave-gen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild js/ui.ts --bundle --outfile=dist/bundle.js --format=esm --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.13",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9"
+  }
+}

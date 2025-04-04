@@ -1,31 +1,27 @@
 body {
   margin: 0;
-  overflow: hidden; /* Hide scrollbars caused by GUI */
-  background-color: #1a1a1a; /* Dark background */
+  overflow: hidden;
+  background-color: #1a1a1a;
   color: #eee;
   font-family: sans-serif;
-  position: relative; /* Add this to make it a positioning context */
-  height: 100vh; /* Make body take full viewport height */
+  position: relative;
+  height: 100vh;
 }
 
 canvas {
-  display: block; /* Remove extra space below canvas */
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--canvas-bg-color, #282828); /* Default to #282828 */
+  background-color: var(--canvas-bg-color, #351e46);
 }
 
 /* --- GUI Styling & Positioning --- */
-/* dat.GUI handles its own internal styling, but we can position the container */
 #gui-container .dg.main {
-  /* Targets the main GUI element */
-  /* Position it top-right if desired */
   position: absolute;
-  z-index: 100; /* Ensure it's above the canvas */
+  z-index: 100;
 }
-/* Or let it use its default fixed positioning */
 
 /* --- Export Controls Styling --- */
 .export-controls {
@@ -94,17 +90,16 @@ canvas {
   border: 1px solid #555;
   padding: 8px;
   font-size: 0.8em;
-  white-space: pre-wrap; /* Allow wrapping */
-  word-wrap: break-word; /* Break long words */
-  max-height: 150px; /* Limit height */
-  overflow-y: auto; /* Add scroll if needed */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 150px;
+  overflow-y: auto;
   border-radius: 3px;
   color: lightgreen;
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 #exportOutput:empty {
-  /* Hide if empty */
   display: none;
 }
 

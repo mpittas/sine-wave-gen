@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const initialConfig = {
     ...BASE_DEFAULT_OPTIONS,
     ...PRESET_OPTIONS[BASE_DEFAULT_OPTIONS.preset],
-    canvasBackgroundColor: "#282828",
+    canvasBackgroundColor: "#351e46",
   };
   initialConfig.baseColor = rgbStringToHex(initialConfig.baseColor);
 

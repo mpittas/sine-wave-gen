@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   overflow: hidden;
@@ -21,13 +24,23 @@ canvas {
 #gui-container .dg.main {
   position: absolute;
   z-index: 100;
+  right: 0;
+}
+
+
+/* --- Bottom info --- */
+.bottom-info {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
 }
 
 /* --- Export Controls Styling --- */
 .export-controls {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   background: rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 5px;
@@ -105,6 +118,41 @@ canvas {
 
 @media (max-width: 767px) {
   .export-controls {
-    width: 320px;
+    width: 100%;
+  }
+}
+
+
+/* --- Credits --- */
+.credits {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 12px;
+  column-gap: 0.5rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.credits a img {
+  width: 60px;
+  opacity: 0.6;
+  transition: opacity .5s ease;
+}
+
+.credits a:hover img {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .bottom-info {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+  }
+
+  .credits a img {
+    width: 50px;
+    opacity: 0.6;
+    transition: opacity .5s ease;
   }
 }

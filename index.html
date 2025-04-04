@@ -11,13 +11,22 @@
     <div id="gui-container"></div>
     <canvas id="waveCanvas"></canvas>
 
-    <div class="export-controls">
-      <div class="export-header">
-        <button id="exportJsButton">Generate JS Snippet</button>
-        <button id="toggleExport" class="toggle-button">▼</button>
+    <div class="bottom-info">
+      <div class="export-controls">
+        <div class="export-header">
+          <button id="exportJsButton">Generate JS Snippet</button>
+          <button id="toggleExport" class="toggle-button">▼</button>
+        </div>
+        <div class="export-content">
+          <pre id="exportOutput" aria-live="polite"></pre>
+        </div>
       </div>
-      <div class="export-content">
-        <pre id="exportOutput" aria-live="polite"></pre>
+
+      <div class="credits">
+        Created by:
+        <a target="_blank" href="https://mariospittas.com">
+          <img src="./assets/logo-light.svg" alt="Marios Pittas logo">
+        </a>
       </div>
     </div>
 

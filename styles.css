@@ -27,7 +27,6 @@ canvas {
   right: 0;
 }
 
-
 /* --- Bottom info --- */
 .bottom-info {
   display: flex;
@@ -122,7 +121,6 @@ canvas {
   }
 }
 
-
 /* --- Credits --- */
 .credits {
   display: flex;
@@ -130,13 +128,13 @@ canvas {
   justify-content: end;
   font-size: 12px;
   column-gap: 0.5rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .credits a img {
   width: 60px;
   opacity: 0.6;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .credits a:hover img {
@@ -153,6 +151,19 @@ canvas {
   .credits a img {
     width: 50px;
     opacity: 0.6;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
   }
+}
+
+.export-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+#exportPngButton {
+  background-color: #2196f3;
+}
+
+#exportPngButton:hover {
+  background-color: #1976d2;
 }

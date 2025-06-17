@@ -7,6 +7,7 @@ import { rgbStringToHex, hexToRgbString } from "./helpers.js";
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("waveCanvas");
   const exportButton = document.getElementById("exportJsButton");
+  const exportPngButton = document.getElementById("exportPngButton");
   const exportOutput = document.getElementById("exportOutput");
   const guiContainer = document.getElementById("gui-container");
   const toggleExportButton = document.getElementById("toggleExport");
@@ -15,7 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Canvas element #waveCanvas not found!");
     return;
   }
-  if (!exportButton || !exportOutput || !guiContainer || !toggleExportButton) {
+  if (
+    !exportButton ||
+    !exportOutput ||
+    !guiContainer ||
+    !toggleExportButton ||
+    !exportPngButton
+  ) {
     console.error("One or more required UI elements are missing!");
     return;
   }
@@ -288,7 +295,23 @@ if (canvasElement) {
     exportOutput.textContent = snippet.trim();
   }
 
+  // PNG Export functionality
+  function exportAsPng() {
+    // Create a temporary link element
+    const link = document.createElement("a");
+    link.download = "sine-waves.png";
+
+    // Get the canvas data as a PNG
+    link.href = canvas.toDataURL("image/png");
+
+    // Trigger the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   exportButton.addEventListener("click", generateJsSnippet);
+  exportPngButton.addEventListener("click", exportAsPng);
   generateJsSnippet(); // Initial generation
 
   // Export toggle
